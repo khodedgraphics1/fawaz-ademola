@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f4f6fa;
+        color: #23272f;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+      }
+      @media (max-width: 700px) {
+        body {
+          overflow-x: hidden;
+        }
+      }
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px; /* reduced padding */
+      }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .theme-toggle-btn {
+        margin-left: 18px;
+        margin-right: 18px;
+        background: #eae2fa;
+        border: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        color: #8325e7;
+        box-shadow: 0 2px 8px rgba(131,37,231,0.08);
+        outline: none;
+      }
+      .theme-toggle-btn:hover {
+        background: #8325e7;
+        color: #fff;
+      }
+      /* Dark Theme Styles */
+      body.dark-theme {
+        background: #181824;
+        color: #fff;
+      }
+      body.dark-theme * {
+        border-color: #444 !important;
+      }
+      body.dark-theme h2 {
+        color: white;
+      }
+      body.dark-theme p {
+        color: white;
+      }
+      body.dark-theme a {
+        color: white !important;
+        border-bottom: none;
+      }
+      body.dark-theme a:hover {
+        color: green !important;
+      }
+      body.dark-theme .testimonials-section {
+        background: #232336;
+      }
+      body.dark-theme .faq-answer {
+        color: #fff !important;
+      }
+      body.dark-theme .faq-question {
+        color: #fff !important;
+      }
+      body.dark-theme .faq-section h2 {
+        color: #fff !important;
+      }
+      body.dark-theme .faq-section {
+        background: linear-gradient(135deg, #232336 60%, #181824 100%);
+      }
+      body.dark-theme .faq-item {
+        background: #232336;
+      }
+      body.dark-theme .faq-question {
+        background: #232336;
+        color: #fff;
+      }
+      body.dark-theme .faq-question:hover {
+        background: #8325e7;
+        color: #fff;
+      }
+      body.dark-theme .faq-answer {
+        color: #eae2fa;
+      }
+      body.dark-theme .footer-social a {
+        color: #fff;
+        transition: color 0.2s, background-color 0.2s;
+      }
+      body.dark-theme .footer-social a:hover {
+        color: #e53935;
+        background-color: transparent;
+      }
+      body.dark-theme .project-info p,
+      body.dark-theme .project-info h3,
+      body.dark-theme .skill-name,
+      body.dark-theme .skill-level,
+      body.dark-theme .about-text,
+      body.dark-theme .contact-form h2,
+      body.dark-theme .contact-info h2,
+      body.dark-theme .social-icons span,
+      body.dark-theme .faq-question,
+      body.dark-theme .faq-answer {
+        color: #fff !important;
+      }
+      body.dark-theme header {
+        background-color: #232336;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+      body.dark-theme nav a {
+        color: #f4f6fa;
+      }
+      body.dark-theme nav a:hover, body.dark-theme nav a.active {
+        color: #39b54a;
+        border-bottom: 2px solid #39b54a;
+      }
+      body.dark-theme .home-content {
+        background: #232336;
+      }
+      body.dark-theme .about-content {
+        background: #232336;
+      }
+      body.dark-theme .work-content {
+        background: #181824;
+      }
+      body.dark-theme .projects-content {
+        background: #232336;
+      }
+      body.dark-theme .skills-content {
+        background: #181824;
+      }
+      body.dark-theme .contact-content {
+        background: #232336;
+        box-shadow: 0 2px 16px rgba(57,181,74,0.05);
+      }
+      body.dark-theme .contact-form, body.dark-theme .contact-info {
+        background: #232336;
+        color: #f4f6fa;
+      }
+      body.dark-theme .social-icons a {
+        background: #232336;
+        color: #f4f6fa;
+      }
+      body.dark-theme .social-icons a:hover {
+        background: #39b54a;
+        color: #fff;
+      }
+      body.dark-theme .map-section {
+        background: #232336;
+      }
+      body.dark-theme .project-card {
+        background: #232336;
+        color: #f4f6fa;
+      }
+      body.dark-theme .skill-card {
+        background: #232336;
+        color: #f4f6fa;
+      }
+      body.dark-theme .faq-section {
+        background: #181824;
+        color: #f4f6fa;
+        box-shadow: none;
+      }
+      body.dark-theme .faq-item {
+        background: #232336;
+        color: #f4f6fa;
+      }
+      body.dark-theme .faq-question {
+        background: #232336;
+        color: #f4f6fa;
+      }
+      body.dark-theme .faq-question:hover {
+        background: #8325e7;
+        color: #fff;
+      }
+      body.dark-theme .faq-answer {
+        color: #eae2fa;
+      }
+      body.dark-theme .marquee-container {
+        background: linear-gradient(90deg, #232336 60%, #181824 100%);
+      }
+      body.dark-theme .marquee-text {
+        color: #fff;
+      }
+      body.dark-theme .section-nav-btn button {
+        background: linear-gradient(135deg, #232336 60%, #39b54a 100%);
+        color: #fff;
+      }
+      body.dark-theme .section-nav-btn button:hover {
+        background: linear-gradient(135deg, #39b54a 60%, #232336 100%);
+      }
+      body.dark-theme footer {
+        background: #000;
+        color: #fff;
+      }
+      body.dark-theme .footer-links a {
+        color: #fff;
+      }
+      body.dark-theme .footer-links a:hover::after {
+        background: red;
+      }
+      body.dark-theme .footer-social a {
+        color: #fff;
+        transition: color 0.2s, background-color 0.2s;
+      }
+      body.dark-theme .footer-social a:hover {
+        color: #e53935;
+        background-color: transparent;
+      }
+      body.dark-theme .menu-dropdown {
+        background-color: black;
+      }
+      @media (max-width: 700px) {
+        .theme-toggle-btn {
+          width: 32px;
+          height: 32px;
+          font-size: 1.1rem;
+        }
+      }
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f4f6fa;
+        color: #23272f;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px; /* reduced padding */
+      }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .profile-container {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .profile-container img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      h1 {
+        font-size: 2rem;
+        margin: 0;
+        color: #23272f;
+        letter-spacing: 1px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .firstname {
+        color: blue;
+      }
+      .lastname {
+        color: purple;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 2px; /* smaller gap */
+        padding: 0;
+        margin-right : 20px; /* right margin for spacing */
+        flex-wrap: wrap; /* allow wrapping on small screens */
+        font-size: 0.98rem; /* slightly smaller font */
+        max-width: 60vw;
+        justify-content: flex-start;
+      }
+      nav a {
+        color: #23272f;
+        flex: 1 1 auto; /* allow links to grow and shrink */
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.98rem;
+        letter-spacing: 0.1px;
+        transition: color 0.2s, border-bottom 0.2s;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+        margin: 0 2px;
+      }
+      nav a:hover, nav a.active {
+        color: black;
+        border-bottom: 2px solid black;
+      }
+      .home-content {
+        background: #fdfaf6;
+        border-radius: 18px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 32px 24px;
+        box-sizing: border-box;
+      }
+      .home-info {
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .home-info h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5em;
+      }
+      .home-info p {
+        font-size: 1.3rem;
+        color: rgb(58, 58, 224);
+      }
+      .home-info .cta-btn {
+        margin-top: 18px;
+        padding: 12px 32px;
+        background: blue;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .home-info .cta-btn:hover {
+        background: purple;
+      }
+      /* Solar System */
+.solar-system {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin-bottom: 25px;
+  margin-left: 35px;
+}
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #6a0dad;
+  box-shadow: 0 0 25px rgba(106,13,173,0.6);
+}
+.sun img { width: 100%; height: 100%; object-fit: cover; }
+/* Orbits */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1.5px dashed purple;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 10s linear infinite;
+}
+.orbit1 { width: 260px; height: 260px; animation-duration: 7s; }
+.orbit2 { width: 320px; height: 320px; animation-duration: 9s; }
+.orbit3 { width: 380px; height: 380px; animation-duration: 11s; }
+/* Planets */
+.planet {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; left: -13px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.planet1 { background: #8a2be2; }
+.planet2 { background: #ff69b4; }
+.planet3 { background: #20c997; }
+@keyframes rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Entrance Animation */
+.solar-enter {
+  opacity: 0;
+  animation: solarEnterLeft 1s cubic-bezier(0.7,0.1,0.9,1) forwards;
+}
+@keyframes solarEnterLeft {
+  0% { opacity: 0; transform: scale(0.5) translateX(-600px); }
+  60% { opacity: 0.7; transform: scale(0.8) translateX(-60px); }
+  100% { opacity: 1; transform: scale(1) translateX(0); }
+}
+      @media (max-width: 900px) {
+        .home-content {
+          flex-direction: column;
+          gap: 24px;
+          min-height: 80vh;
+          padding: 24px 8px;
+        }
+        .home-img {
+          width: 80vw;
+          max-width: 320px;
+          height: auto;
+        }
+        .home-info h2 {
+          font-size: 1.5rem;
+        }
+      }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #23272f;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        margin: 30px;
+        padding-left: 48%;
+      }
+      .about-content {
+        background: #e6ffe6;
+        border-radius: 18px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 32px 24px;
+        box-sizing: border-box;
+      }
+      @media (max-width: 900px) {
+        .about-content {
+          min-height: 80vh;
+          padding: 24px 8px;
+        }
+        .about-content h2 {
+          padding-left: 25%;
+          width: 100%;
+          display: block;
+          justify-content: center;
+        }
+      }
+      .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .about-img {
+        width: 350px;
+        height: 400px;
+        margin: 0;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      .about-text {
+        max-width: 600px;
+        font-size: 1.08rem;
+        color: #333;
+        line-height: 1.7;
+      }
+      p, li {
+        font-size: 1.08rem;
+        color: #333;
+        line-height: 1.7;
+      }
+      ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+      li {
+        margin-bottom: 10px;
+        list-style: disc inside;
+      }
+      a {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #39b54a;
+      }
+      .contact-content {
+        background: #f7fff7;
+        border-radius: 18px;
+        margin: 40px 0;
+        padding: 40px 24px 32px 24px;
+        box-shadow: 0 2px 16px rgba(57,181,74,0.10);
+      }
+      .contact-content h2 {
+        color: #23272f;
+        text-align: center;
+        margin-bottom: 36px;
+        padding-left: 0;
+      }
+      .contact-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .contact-form, .contact-info {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(57,181,74,0.08);
+        padding: 32px 24px 24px 24px;
+        flex: 1 1 320px;
+        min-width: 280px;
+        margin-bottom: 0;
+      }
+      .contact-form h2, .contact-info h2 {
+        color: #39b54a;
+        margin-bottom: 18px;
+        font-size: 1.3rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 95%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1.5px solid #39b54a;
+        border-radius: 8px;
+        font-size: 1rem;
+        background: #f7fff7;
+        transition: border 0.2s;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border: 2px solid #8325e7;
+        outline: none;
+      }
+      .contact-form button {
+        padding: 12px 28px;
+        border: none;
+        background: linear-gradient(90deg, #39b54a 60%, #8325e7 100%);
+        color: white;
+        border-radius: 8px;
+        font-size: 1.08rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(57,181,74,0.10);
+      }
+      .contact-form button:hover {
+        background: linear-gradient(90deg, #8325e7 60%, #39b54a 100%);
+        box-shadow: 0 4px 16px rgba(131,37,231,0.12);
+      }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+      }
+      .social-icons a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #23272f;
+        background-color: #eafbe7;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: background 0.3s, color 0.2s;
+        font-weight: 600;
+      }
+      .social-icons a:hover {
+        background-color: #39b54a;
+        color: #fff;
+      }
+      .social-icons i {
+        font-size: 20px;
+      }
+      .map-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        background: #eafbe7;
+        border-radius: 18px;
+        margin: 40px 0;
+        padding: 40px 24px 32px 24px;
+        box-shadow: 0 2px 16px rgba(57,181,74,0.10);
+      }
+      .map-section h2 {
+        color: #23272f;
+        text-align: center;
+        margin-bottom: 36px;
+        font-size: 2.2rem;
+        margin-left: 0;
+        margin-right: 48%;
+        width: 100%;
+        display: block;
+      }
+      .map-section .map {
+        width: 90vw;
+        max-width: 900px;
+        height: 30vh;
+        min-height: 320px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 700px) {
+        .map-section .map {
+          width: 300px;
+          min-height: 220px;
+        }
+      }
+      /* FadeInUp Animation */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      .fade-in-up.fade-in-up-animate {
+        animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) forwards;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Projects Section Styling */
+      .projects-content {
+        background: purple;
+        border-radius: 18px;
+        margin: 40px 0;
+        padding: 40px 24px 32px 24px;
+        box-shadow: 0 2px 16px rgba(131,37,231,0.07);
+      }
+      .projects-content h2 {
+        color: white;
+        text-align: center;
+        margin-bottom: 36px;
+        padding-left: 0;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 32px;
+        justify-content: center;
+        align-items: stretch;
+      }
+      .project-card {
+        background: #f7f5ff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(131,37,231,0.08);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+      }
+      .project-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 6px 24px rgba(131,37,231,0.18);
+      }
+      .project-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+      }
+      .project-info {
+        padding: 20px 18px 24px 18px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .project-info h3 {
+        margin: 0 0 10px 0;
+        color: #23272f;
+        font-size: 1.18rem;
+        font-weight: 700;
+      }
+      .project-info p {
+        color: #5a5a5a;
+        font-size: 1rem;
+        margin-bottom: 18px;
+        flex: 1;
+      }
+      .project-btn {
+        display: inline-block;
+        background: linear-gradient(90deg, #8325e7 60%, #39b54a 100%);
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(131,37,)
+      }
+      .project-btn:hover {
+        background: linear-gradient(90deg, #39b54a 60%, #8325e7 100%);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(57,181,74,0.15);
+      }
+      /* Full-page Skills Section */
+      .skills-content {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: blue;
+        border-radius: 18px;
+        margin: 40px 0;
+        padding: 40px 24px 32px 24px;
+        box-shadow: 0 2px 16px rgba(131,37,231,0.07);
+      }
+      .skills-content h2 {
+        color: white;
+        text-align: center;
+        margin-bottom: 36px;
+        padding-left: 0;
+      }
+      .skills-grid {
+        width: 100%;
+        max-width: 900px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 32px;
+        justify-content: center;
+        align-items: stretch;
+      }
+      .skill-card {
+        background: #f7f5ff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(131,37,231,0.08);
+        padding: 28px 18px 24px 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .skill-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 6px 24px rgba(131,37,231,0.18);
+      }
+      .skill-icon {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+      }
+      .skill-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #23272f;
+        margin-bottom: 12px;
+      }
+      .skill-bar {
+        width: 100%;
+        height: 12px;
+        background: #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+      .skill-level {
+        height: 100%;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 8px;
+        width: 0;
+        opacity: 0.95;
+        transition: width 1.2s cubic-bezier(.23,1.01,.32,1);
+      }
+      .skill-level.html {
+        background: #e44d26;
+        width: 89%;
+      }
+      .skill-level.css {
+        background: #2965f1;
+        width: 80%;
+      }
+      .skill-level.js {
+        background: #f7df1e;
+        width: 60%;
+      }
+      .skill-level.git {
+        background: #f34f29;
+        width: 40%;
+      }
+      @media (max-width: 700px) {
+        .skills-content {
+          padding: 24px 4px 18px 4px;
+          padding: 24px 4px 18px 4px;
+        }
+        .skills-grid {
+          gap: 18px;
+        }
+      }
+      .work-content {
+        background: rgb(85, 9, 9);
+        min-height: 100vh;
+        border-radius: 18px;
+        margin: 40px 0;
+        padding: 40px 24px 32px 24px;
+        box-shadow: 0 2px 16px rgba(57,181,74,0.07);
+      }
+      .work-content h2 {
+        color: white;
+        text-align: center;
+        margin-bottom: 36px;
+        padding-left: 0;
+        margin-top: 5%;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10%;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.5s ease;
+      }
+
+      .box img {
+        width: 200px;
+        height: 200px;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .box:hover img {
+        opacity: 0.7;
+        transform: scale(1.05);
+      }
+
+     .hero {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background-color: purple;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+
+      .box:hover .hero {
+        opacity: 0.5;
+      }
+      .resume-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 35px;
+        margin-left: 42.3%;
+        background: linear-gradient(90deg, #39b54a 60%, #8325e7 100%);
+        color: #fff !important;
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-size: 1.08rem;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(57,181,74,0.10);
+        transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+        border: none;
+        cursor: pointer;
+        min-width: 160px;
+        z-index: 2;
+      }
+      .resume-btn i {
+        margin-right: 8px;
+        font-size: 1.2em;
+      }
+      .resume-btn:hover {
+        background: linear-gradient(90deg, #8325e7 60%, #39b54a 100%);
+        color: #fff !important;
+        box-shadow: 0 4px 16px rgba(57,181,74,0.15);
+        text-decoration: none;
+      }
+      @media (max-width: 900px) {
+      .resume-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 0;
+        margin: 14px 0 0 0;
+        }
+      }
+      .testimonials-section {
+          background: #f7fff7;
+          border-radius: 18px;
+          margin: 40px 0;
+          padding: 40px 24px 32px 24px;
+          box-shadow: 0 2px 16px rgba(57,181,74,0.10);
+        }
+        .testimonials-section h2 {
+          color: #23272f;
+          text-align: center;
+          margin-top: 10%;
+          margin-bottom: 36px;
+          padding-left: 0;
+        }
+        .testimonials-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px;
+          justify-content: center;
+          align-items: stretch;
+        }
+        .testimonial-card {
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 2px 12px rgba(131,37,231,0.08);
+          padding: 28px 18px 24px 18px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 340px;
+          min-width: 220px;
+          flex: 1 1 220px;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .testimonial-card:hover {
+          transform: translateY(-6px) scale(1.03);
+          box-shadow: 0 6px 24px rgba(131,37,231,0.18);
+        }
+        .testimonial-text {
+          font-size: 1.08rem;
+          color: #23272f;
+          text-align: center;
+          margin-bottom: 18px;
+          font-style: italic;
+        }
+        .testimonial-author {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+        .testimonial-img {
+          width: 54px;
+          height: 54px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 6px;
+          border: 2px solid #8325e7;
+        }
+        .author-name {
+          font-weight: 700;
+          color: #8325e7;
+        }
+        .author-role {
+          font-size: 0.98rem;
+          color: #39b54a;
+        }
+        @media (max-width: 900px) {
+          .testimonials-container {
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+          }
+          .testimonials-section h2 {
+            margin: 22%;
+          }
+        }
+      /* Bottom-right Next Section Button */
+      .section-nav-btn {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 1200;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .section-nav-btn button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #8325e7 60%, #39b54a 100%);
+        color: #fff;
+        border: none;
+        box-shadow: 0 2px 12px rgba(131,37,231,0.13);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        outline: none;
+        opacity: 0.92;
+      }
+      .section-nav-btn button:hover {
+        background: linear-gradient(135deg, #39b54a 60%, #8325e7 100%);
+        transform: scale(1.08);
+        opacity: 1;
+      }
+      @media (max-width: 700px) {
+        .section-nav-btn {
+          bottom: 16px;
+          right: 25px;
+          
+        }
+        .section-nav-btn button {
+          width: 38px;
+          height: 38px;
+          font-size: 1.2rem;
+        }
+      }
+      /* Marquee (scrolling text) styles - Improved for mobile and speed */
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        background: linear-gradient(90deg, #8325e7 60%, #39b54a 100%);
+        padding: 0;
+        border-radius: 12px 12px 0 0;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+      }
+      .marquee-text {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 1px;
+        animation: text-scroll 7s linear infinite;
+        padding-left: 100%;
+        min-width: 100vw;
+      }
+      @keyframes text-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+      @media (max-width: 700px) {
+        .marquee-container {
+          height: 32px;
+        }
+        .marquee-text {
+          font-size: 0.98rem;
+        }
+      }
+      /* FAQ Section Styles */
+      .faq-section {
+        min-height: 100vh;
+        width: 100vw;
+        max-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f7f5ff 60%, #eae2fa 100%);
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 0 0 0 0;
+      }
+      .faq-section h2 {
+        text-align: center;
+        color: #8325e7;
+        margin: 0 0 32px 0;
+        font-size: 2.2rem;
+        position: static;
+        width: 100%;
+        margin-right: 50%;
+        margin-top: 10%;
+      }
+      .faq-list {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .faq-item {
+        margin-bottom: 24px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(131,37,231,0.06);
+        overflow: hidden;
+        transition: box-shadow 0.2s;
+        width: 100%;
+      }
+      .faq-question {
+        cursor: pointer;
+        padding: 20px 24px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #23272f;
+        background: #eae2fa;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: none;
+        outline: none;
+        width: 100%;
+        transition: background 0.2s;
+      }
+      .faq-question:hover {
+        background: #d1b3ff;
+      }
+      .faq-answer {
+        padding: 0 24px 18px 24px;
+        color: #444;
+        font-size: 1.05rem;
+        display: none;
+        animation: fadeIn 0.4s;
+      }
+      .faq-item.open .faq-answer {
+        display: block;
+      }
+      .faq-item.open .faq-question i {
+        transform: rotate(180deg);
+      }
+      .faq-question i {
+        transition: transform 0.3s;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (max-width: 700px) {
+        .faq-section { 
+          padding: 0 0 0 0; 
+          min-height: 80vh; 
+        }
+        .faq-section h2 {
+           font-size: 2.0rem; 
+           margin-top: 30%;
+          }
+        .faq-list {
+           max-width: 98vw; 
+          }
+        .faq-question {
+           font-size: 1rem; 
+           padding: 14px 10px; 
+          }
+        .faq-answer { 
+          font-size: 0.98rem; 
+          padding: 0 10px 12px 10px; 
+        }
+      }
+      
+      footer {
+        background: #000;
+        color: #fff;
+        padding: 40px 0 18px 0;
+        text-align: center;
+        margin-top: 0;
+        border-radius: 0;
+        box-shadow: 0 -2px 16px rgba(0,0,0,0.18);
+      }
+      .footer-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 0 24px;
+        position: relative;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .footer-links h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1rem;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.2s;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .footer-links a:hover::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: red;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 2px;
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 1rem;
+        max-width: 400px;
+      }
+      .footer-info h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1rem;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+      .footer-social {
+        display: flex;
+        gap: 16px;
+        margin-top: 10px;
+      }
+      .footer-social a {
+        color: #fff;
+        font-size: 1.3rem;
+        transition: color 0.2s, background-color 0.2s;
+      }
+      .footer-social a:hover {
+        color: #e53935;
+        background-color: transparent;
+      }
+      .footer-newsletter {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        
+        gap: 8px;
+        max-width: 350px;
+      }
+      .footer-newsletter label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 4px;
+        justify-content: center;
+        margin-right: 23px;
+      }
+      .footer-newsletter input[type="email"] {
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        width: 60%;
+        margin-bottom: 6px;
+      }
+      .footer-newsletter button {
+        background: #e53935;
+        color: #fff;
+        border: none;
+        margin-right: 25px;
+        border-radius: 6px;
+        padding: 8px 18px;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 50%;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .footer-newsletter button:hover {
+        background: #39b54a;
+      }
+      .footer-quote {
+        margin-top: 24px;
+        font-style: italic;
+        color: #eae2fa;
+        font-size: 1.08rem;
+        max-width: 400px;
+      }
+      @media (max-width: 900px) {
+        .footer-content { flex-direction: column !important; align-items: center !important; }
+        .footer-newsletter {
+          position: static !important;
+          align-items: center !important;
+          margin-top: 18px !important;
+          width: 100% !important;
+          max-width: 350px !important;
+        }
+      }
+      .dropdown-nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .menu-btn {
+        background: linear-gradient(90deg, #8325e7 60%, #39b54a 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 22px;
+        font-size: 1.08rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+      }
+      .menu-btn:hover {
+        background: linear-gradient(90deg, #39b54a 60%, #8325e7 100%);
+      }
+      .menu-dropdown {
+        display: none;
+        position: absolute;
+        top: 110%;
+        left: 0;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(131,37,231,0.13);
+        border-radius: 10px;
+        min-width: 180px;
+        z-index: 2000;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      .menu-dropdown a {
+        color: #23272f;
+        text-decoration: none;
+        padding: 12px 24px;
+        display: block;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: background 0.2s, color 0.2s;
+      }
+      .menu-dropdown a:hover {
+        background: #eae2fa;
+        color: #8325e7;
+      }
+      @media (max-width: 900px) {
+        .dropdown-nav {
+          width: 100%;
+          justify-content: flex-end;
+        }
+        .menu-btn {
+          width: 70px;
+          margin-right: 10px;
+          font-size: 1rem;
+          padding: 10px 0;
+        }
+        .menu-dropdown {
+          min-width: 140px;
+        }
+      }
+      /* Responsive Home Section Fixes */
+      @media (max-width: 700px) {
+        .home-content {
+          flex-direction: column !important;
+          gap: 16px !important;
+          min-height: 70vh !important;
+          padding: 16px 4vw !important;
+          align-items: stretch !important;
+        }
+        
+        .home-info {
+          max-width: 100% !important;
+          width: 100% !important;
+          padding: 0 !important;
+          gap: 10px !important;
+        }
+        .home-info p, .home-info .cta-btn {
+          font-size: 1rem !important;
+        }
+        .home-img {
+          width: 90vw !important;
+          max-width: 320px !important;
+          height: auto !important;
+          margin: 0 auto !important;
+          display: block !important;
+        }
+        .home-content > div[style] {
+          flex-direction: column !important;
+          gap: 10px !important;
+          align-items: stretch !important;
+        }
+      }
+      /* End Responsive Home Section Fixes */
+    </style>
+</head>
+<body>
+    <header>
+      <div class="header-left">
+        <div class="profile-container">
+          <img src="p.jpg" alt="My Profile Picture">
+        </div>
+        <h1><span class="firstname">Ademola</span> <span class="lastname">Fawaz</span></h1>
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <nav class="dropdown-nav">
+        <button class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i> Menu</button>
+        <div class="menu-dropdown" id="menu-dropdown">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#what I Do">What I Do</a>
+          <a href="#projects">My Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </nav>
+    </header>
+   
+    <main>
+        <!--Home Section-->
+        <section id="home">
+          <div class="home-content fade-in-up" style="margin-top:64px; position:relative; flex-direction:column; gap:24px;">
+            
+            <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; gap:40px; width:100%;">
+              <div class="home-info">
+                <p><b>Graphics Designer & Frontend Dev.</b><br>
+                📍 Lagos, Nigeria | 📧 ademolafawaz147@gmail.com | 🌐 <a href="#">khodedgraphics.com</a></p>
+                <p>I create stunning visuals and modern websites that help brands stand out. With a passion for design and code, I turn ideas into beautiful, user-friendly digital experiences.</p>
+                <p>Let’s work together to bring your vision to life!</p>
+                <a href="#contact"><button class="cta-btn">Contact Me</button></a>
+              </div>
+              <!-- Solar System Animation Start -->
+<div class="solar-system solar-enter">
+  <div class="sun"><img src="home.jpg" alt="Profile Picture"></div>
+  <div class="orbit orbit1"><div class="planet planet1"></div></div>
+  <div class="orbit orbit2"><div class="planet planet2"></div></div>
+  <div class="orbit orbit3"><div class="planet planet3"></div></div>
+</div>
+<!-- Solar System Animation End -->
+            </div>
+          </div>
+        </section>
+        <!--About Section-->
+        <section id="about">
+         <div class="about-content fade-in-up">
+          <h2>About Me</h2>
+          <div class="about-container">
+            <img src="my.jpg" alt="My Picture" class="about-img">
+            <div class="about-text">
+              <p>Hi, I'm Ademola Fawaz, a passionate Graphics Designer and Frontend Developer based in Lagos, Nigeria. I specialize in creating stunning visuals and user-friendly web interfaces that enhance user experience.</p>
+              <p>I have a keen eye for design and a strong foundation in frontend technologies. My goal is to bring your ideas to life through creative and functional designs.</p>
+            </div>
+          </div>
+         </div>
+        </section>
+        <!--Work Section-->
+        <section id="what I Do">
+          <div class="work-content fade-in-up">
+            <h2>What I Do</h2>
+           <div class="container">
+             <div class="box">
+               <img src="kff.jpg" alt="Graphic Design">
+               <div  class="text">Graphics Design</div>
+               <div class="hero">Logos, flyers, banners <br> & social media content</div>
+             </div>
+
+             <div class="box">
+               <img src="ui.jpg" alt="Web Design">
+               <p>UI/UX Design</p>
+               <div class="hero">UI/UX design with responsive layouts</div>
+             </div>
+
+             <div class="box">
+               <img src="front.jpg" alt="Frontend">
+               <p>frontend Development</p>
+               <div class="hero">Building responsive website with HTML, CSS & JavaScript</div>
+               <div class="text">Frontend Development</div>
+              </div>
+           </div>
+           <a href="resume.html" class="resume-btn"><i class="fas fa-file-alt"></i> View My Resume</a>
+           </div>
+        </section>
+        <!-- Projects Section -->
+        <section id="projects">
+          <div class="projects-content fade-in-up">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+              <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <div class="project-info">
+                  <h3>Brand Portfolio Website</h3>
+                  <p>A modern, responsive portfolio for a creative brand, featuring smooth animations and a clean UI.</p>
+                </div>
+              </div>
+              <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+                <div class="project-info">
+                  <h3>Business Landing Page</h3>
+                  <p>Landing page for a startup, with custom graphics, call-to-action, and mobile-first design.</p>
+                </div>
+              </div>
+              <div class="project-card">
+                <img src="project3.jpg" alt="Project 3">
+                <div class="project-info">
+                  <h3>UI/UX Dashboard</h3>
+                  <p>Interactive dashboard UI with charts, cards, and a dark/light mode toggle.</p>
+                </div>
+              </div>
+              <div class="project-card">
+                <img src="project4.jpg" alt="Project 4">
+                <div class="project-info">
+                  <h3>E-commerce Product Page</h3>
+                  <p>Responsive product showcase with add-to-cart, image gallery, and smooth transitions.</p>
+                </div>
+              </div>
+              <div class="project-card">
+                <img src="project5.jpg" alt="Project 5">
+                <div class="project-info">
+                  <h3>Event Promo Site</h3>
+                  <p>Landing page for an event, featuring countdown, registration form, and animated banners.</p>
+                </div>
+              </div>
+              <div class="project-card">
+                <img src="project6.jpg" alt="Project 6">
+                <div class="project-info">
+                  <h3>Personal Blog</h3>
+                  <p>Clean blog layout with featured posts, tags, and a dark mode toggle for reading comfort.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Skill and Tools-->
+        <section id="skills">
+          <div class="skills-content fade-in-up">
+            <h2>Skills & Tools</h2>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <i class="fab fa-html5 skill-icon" style="color:#e44d26;"></i>
+                <span class="skill-name">HTML</span>
+                <div class="skill-bar"><div class="skill-level html">89%</div></div>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-css3-alt skill-icon" style="color:#2965f1;"></i>
+                <span class="skill-name">CSS</span>
+                <div class="skill-bar"><div class="skill-level css">80%</div></div>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-js-square skill-icon" style="color:#f7df1e;"></i>
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar"><div class="skill-level js">60%</div></div>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-git-alt skill-icon" style="color:#f34f29;"></i>
+                <span class="skill-name">Git</span>
+                <div class="skill-bar"><div class="skill-level git">40%</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Contact Section-->
+        <section id="contact">
+  <div class="contact-content fade-in-up">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Feedback</h2>
+        <form action="https://wa.me/+2348022519676">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Connect with Me</h2>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i><span>Facebook</span>
+          </a>
+          <a href="https://x.com/khodedfundz1" target="_blank">
+            <i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+          <a href="https://www.linkedin.com/in/fawaz-ademola-535753377" target="_blank">
+            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/khodedgraphics1" target="_blank">
+            <i class="fab fa-github"></i><span>GitHub</span>
+          </a>
+          <a href="https://wa.me/+2348022519676.com" target="_blank">
+            <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Find Me / Map Section -->
+<section id="find-me" class="map-section fade-in-up">
+  <h2>Find Me</h2>
+  <div class="map">
+    <iframe 
+      src="https://www.google.com/maps?q=58+Lanre+Adeyemi+Street,+Ayobo,+Lagos&output=embed" width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="faq-section fade-in-up">
+  <h2>FAQ</h2>
+  <ul class="faq-list">
+    <li class="faq-item">
+      <button class="faq-question">What services do you offer? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">I offer graphics design, UI/UX design, and frontend web development services, including logos, banners, websites, and more.</div>
+    </li>
+    <li class="faq-item">
+      <button class="faq-question">How can I contact you for a project? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">You can use the contact form on my portfolio homepage or reach out via email or WhatsApp. All details are on the Contact section.</div>
+    </li>
+    <li class="faq-item">
+      <button class="faq-question">What is your typical project turnaround time? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">Turnaround time depends on the project scope, but most small projects are completed within 7-21 days. Depending on the project.</div>
+    </li>
+    <li class="faq-item">
+      <button class="faq-question">Do you work with clients outside Nigeria? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">Yes! I work with clients worldwide. Communication is done via email, WhatsApp, or video calls.</div>
+    </li>
+    <li class="faq-item">
+      <button class="faq-question">Can you help with both design and coding? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">Absolutely! I handle both the visual design and the frontend development for a seamless experience.</div>
+    </li>
+  </ul>
+</section>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section fade-in-up">
+          <h2>Testimonials</h2>
+          <div class="testimonials-container">
+            <div class="testimonial-card">
+              <div class="testimonial-text">“Ademola delivered a stunning website for my business. The design is modern, and the user experience is top-notch. Highly recommended!”</div>
+              <div class="testimonial-author">
+                <img src="client1.jpg" alt="Client 1" class="testimonial-img">
+                <span class="author-name">Sarah O.</span>
+                <span class="author-role">Business Owner</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-text">“Great communication and creative ideas. My brand’s social media graphics have never looked better!”</div>
+              <div class="testimonial-author">
+                <img src="client2.jpg" alt="Client 2" class="testimonial-img">
+                <span class="author-name">Michael B.</span>
+                <span class="author-role">Entrepreneur</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-text">“Professional, fast, and reliable. Ademola handled both the design and coding for my project seamlessly.”</div>
+              <div class="testimonial-author">
+                <img src="client3.jpg" alt="Client 3" class="testimonial-img">
+                <span class="author-name">Aisha K.</span>
+                <span class="author-role">Startup Founder</span>
+              </div>
+            </div>
+          </div>
+        </section>
+    </main>
+    <!-- Section Navigation Button -->
+    <div class="section-nav-btn">
+      <button id="next-section-btn" title="Next section" aria-label="Next section">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <button id="previous-section-btn" title="Previous section" aria-label="Previous section">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </div>
+    <footer>
+      <div class="footer-content" style="position:relative;">
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#what I Do">What I Do</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-info center-footer-info">
+          <h3>Contact Info</h3>
+          <div>Email: ademolafawaz147@gmail.com</div>
+          <div>Location: Lagos, Nigeria</div>
+          <div class="footer-social" style="justify-content:center;">
+            <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/khodedfundz1" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/fawaz-ademola-535753377" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/khodedgraphics1" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/+2348022519676" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <form class="footer-newsletter" style="position:absolute; top:0; right:0; margin:0; align-items:flex-end; max-width:350px; width:100%; background:transparent; box-shadow:none;">
+          <label for="newsletter-email">Subscribe to Newsletter</label>
+          <input type="email" id="newsletter-email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-quote" id="footer-quote">
+        "Creativity is intelligence having fun." – Albert Einstein
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Ademola Fawaz. All rights reserved.
+      </div>
+    </footer>
+    <script>
+      // Fade-in-up animation on scroll using Intersection Observer (repeatable)
+      document.addEventListener('DOMContentLoaded', function() {
+        const animatedSections = document.querySelectorAll('.fade-in-up');
+        const observer = new window.IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('fade-in-up-animate');
+              // If this is the skills section, trigger skill bar animation
+              if (entry.target.classList.contains('skills-content')) {
+                entry.target.classList.add('active');
+              }
+            } else {
+              entry.target.classList.remove('fade-in-up-animate');
+              if (entry.target.classList.contains('skills-content')) {
+                entry.target.classList.remove('active');
+              }
+            }
+          });
+        }, { threshold: 0.2 });
+
+        animatedSections.forEach(section => {
+          observer.observe(section);
+        });
+      });
+      // Section navigation button logic
+      document.addEventListener('DOMContentLoaded', function() {
+        const sections = Array.from(document.querySelectorAll('main > section'));
+        const nextBtn = document.getElementById('next-section-btn');
+        const prevBtn = document.getElementById('previous-section-btn');
+        nextBtn.addEventListener('click', function() {
+          // Find the first section in view or above
+          const scrollY = window.scrollY;
+          const buffer = 10; // px
+          let nextIdx = 0;
+          for (let i = 0; i < sections.length; i++) {
+            const rect = sections[i].getBoundingClientRect();
+            if (rect.top + window.scrollY > scrollY + buffer) {
+              nextIdx = i;
+              break;
+            }
+            // If at last section, loop to first
+            if (i === sections.length - 1) {
+              nextIdx = 0;
+            }
+          }
+          sections[nextIdx].scrollIntoView({ behavior: 'smooth' });
+        });
+        // Previous section button logic
+        prevBtn.addEventListener('click', function() {
+          const scrollY = window.scrollY;
+          const buffer = 10; // px
+          let prevIdx = sections.length - 1;
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const rect = sections[i].getBoundingClientRect();
+            if (rect.top + window.scrollY < scrollY - buffer) {
+              prevIdx = i;
+              break;
+            }
+            // If at first section, loop to last
+            if (i === 0) {
+              prevIdx = sections.length - 1;
+            }
+          }
+          sections[prevIdx].scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      // FAQ toggle logic
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const item = btn.parentElement;
+          // Close all other open items
+          document.querySelectorAll('.faq-item.open').forEach(openItem => {
+            if (openItem !== item) openItem.classList.remove('open');
+          });
+          // Toggle this one
+          item.classList.toggle('open');
+        });
+      });
+      // Dark theme toggle logic
+      const themeBtn = document.getElementById('theme-toggle-btn');
+      const themeIcon = themeBtn.querySelector('i');
+      function setTheme(dark) {
+        if (dark) {
+          document.body.classList.add('dark-theme');
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+        } else {
+          document.body.classList.remove('dark-theme');
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+        }
+      }
+      // Load theme from localStorage
+      let darkTheme = localStorage.getItem('theme') === 'dark';
+      setTheme(darkTheme);
+      themeBtn.addEventListener('click', function() {
+        darkTheme = !darkTheme;
+        setTheme(darkTheme);
+        localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
+      });
+      // Center the contact info in the footer
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .center-footer-info {
+          align-items: center !important;
+          text-align: center !important;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        @media (max-width: 700px) {
+          .center-footer-info {
+            align-items: center !important;
+            text-align: center !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      // Rotating inspirational quote logic
+      const quotes = [
+        '"Creativity is intelligence having fun." – Albert Einstein',
+        '"Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs',
+        '"Simplicity is the ultimate sophistication." – Leonardo da Vinci',
+        '"The details are not the details. They make the design." – Charles Eames',
+        '"Good design is obvious. Great design is transparent." – Joe Sparano',
+        '"Code is like humor. When you have to explain it, it’s bad." – Cory House',
+        '"First, solve the problem. Then, write the code." – John Johnson',
+        '"Styles come and go. Good design is a language, not a style." – Massimo Vignelli'
+      ];
+      let quoteIdx = 0;
+      const quoteEl = document.getElementById('footer-quote');
+      function showNextQuote() {
+        quoteIdx = (quoteIdx + 1) % quotes.length;
+        quoteEl.textContent = quotes[quoteIdx];
+      }
+      setInterval(showNextQuote, 20000);
+      // Dropdown menu logic
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('menu-btn');
+        const menuDropdown = document.getElementById('menu-dropdown');
+        menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          menuDropdown.style.display = menuDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', function(e) {
+          if (!menuDropdown.contains(e.target) && e.target !== menuBtn) {
+            menuDropdown.style.display = 'none';
+          }
+        });
+      });
+    </script>
+    <!-- Add this script before the closing </body> tag or at the end of the file -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Collect form data
+        const name = form.querySelector('[name="name"]')?.value || '';
+        const email = form.querySelector('[name="email"]')?.value || '';
+        const message = form.querySelector('[name="message"]')?.value || '';
+        // You can add more fields if your form has them
+        
+        // Format WhatsApp message
+        const text = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        );
+        // WhatsApp number (without + or spaces)
+        const phone = '2348022519676';
+        // Open WhatsApp
+        window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+      });
+    }
+  });
+</script>
+  </body>
+</html>
